@@ -2,7 +2,6 @@ from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_groq.chat_models import ChatGroq
 from langgraph.graph import START, MessagesState, StateGraph
 from langgraph.prebuilt import ToolNode, tools_condition
-from matplotlib.pyplot import savefig
 
 
 class Graph:
@@ -12,7 +11,6 @@ class Graph:
         self.llm_with_tools = ChatGroq(
             model="llama3-70b-8192",
             temperature=0,
-            api_key="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",
         ).bind_tools(
             self.tools,
             parallel_tool_calls=False,

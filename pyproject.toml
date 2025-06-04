@@ -10,7 +10,12 @@ authors = [
   { name = "Youssef Mohammad" },
 ]
 requires-python = ">=3.12"
-dependencies = ["gradio[mcp]>=5.32.0", "langgraph>=0.4.7", "loguru>=0.7.3"]
+dependencies = [
+  "gradio[mcp]>=5.32.1",
+  "langchain-groq>=0.3.2",
+  "langgraph>=0.4.8",
+  "loguru>=0.7.3",
+]
 
 [project.scripts]
 

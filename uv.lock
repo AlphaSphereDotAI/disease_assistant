@@ -183,6 +183,7 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "gradio", extra = ["mcp"] },
+    { name = "langchain-groq" },
     { name = "langgraph" },
     { name = "loguru" },
 ]
@@ -195,8 +196,9 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "gradio", extras = ["mcp"], specifier = ">=5.32.0" },
-    { name = "langgraph", specifier = ">=0.4.7" },
+    { name = "gradio", extras = ["mcp"], specifier = ">=5.32.1" },
+    { name = "langchain-groq", specifier = ">=0.3.2" },
+    { name = "langgraph", specifier = ">=0.4.8" },
     { name = "loguru", specifier = ">=0.7.3" },
 ]
 
@@ -204,6 +206,15 @@ requires-dist = [
 dev = [
     { name = "ruff", specifier = ">=0.11.12" },
     { name = "ty", specifier = ">=0.0.1a7" },
+]
+
+[[package]]
+name = "distro"
+version = "1.9.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/fc/f8/98eea607f65de6527f8a2e8885fc8015d3e6f5775df186e443e0964a11c3/distro-1.9.0.tar.gz", hash = "sha256:2fa77c6fd8940f116ee1d6b94a2f90b13b5ea8d019b98bc8bafdcabcdd9bdbed", size = 60722, upload-time = "2023-12-24T09:54:32.31Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/12/b3/231ffd4ab1fc9d679809f356cebee130ac7daa00d6d6f3206dd4fd137e9e/distro-1.9.0-py3-none-any.whl", hash = "sha256:7bffd925d65168f85027d8da9af6bddab658135b840670a223589bc0c8ef02b2", size = 20277, upload-time = "2023-12-24T09:54:30.421Z" },
 ]
 
 [[package]]
@@ -249,7 +260,7 @@ wheels = [
 
 [[package]]
 name = "gradio"
-version = "5.32.0"
+version = "5.32.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiofiles" },
@@ -282,9 +293,9 @@ dependencies = [
     { name = "urllib3", marker = "sys_platform == 'emscripten'" },
     { name = "uvicorn", marker = "sys_platform != 'emscripten'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/8f/ff/e5bd3863bc25397319547e1a0de7b562fadeb671cd7e6a5d048b0c88be31/gradio-5.32.0.tar.gz", hash = "sha256:c0b151ac039567123b8f9e058aa3256aadc906ecf7b79c26534aa81dcc7ba313", size = 64783727, upload-time = "2025-05-30T13:59:46.265Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/69/b9/a5ebc2e667ee30c47a96c3c2276c0db63cb9ae9db45a08d693c1c9250b5d/gradio-5.32.1.tar.gz", hash = "sha256:6026fc458d6e642e1832c7becc17d9e17439c41d29bf14cb39dfb23365e759c6", size = 64779509, upload-time = "2025-06-02T21:04:44.816Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e2/4d/52a719a5e9a70022438d38238f2a9a3297b864c8ceaa61d77e3f1c1b472a/gradio-5.32.0-py3-none-any.whl", hash = "sha256:45fdb15784f4be19eca2beb1d45d107238ca614c177b20b0e3d4f2d6aee81bae", size = 54201078, upload-time = "2025-05-30T13:59:40.764Z" },
+    { url = "https://files.pythonhosted.org/packages/e4/27/2f14c2a408301cda16eb6d2e84ce548ca444dc22c3e4209663337addbde2/gradio-5.32.1-py3-none-any.whl", hash = "sha256:994c9437c1abc2663d7a9ec3bd2f0dfe6e4279bfc3cdca1dd265bf6d21722bcc", size = 54202770, upload-time = "2025-06-02T21:04:39.68Z" },
 ]
 
 [package.optional-dependencies]
@@ -317,6 +328,23 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/52/36/bbdede67400277bef33d3ec0e6a31750da972c469f75966b4930c753218f/groovy-0.1.2.tar.gz", hash = "sha256:25c1dc09b3f9d7e292458aa762c6beb96ea037071bf5e917fc81fb78d2231083", size = 17325, upload-time = "2025-02-28T20:24:56.068Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/28/27/3d6dcadc8a3214d8522c1e7f6a19554e33659be44546d44a2f7572ac7d2a/groovy-0.1.2-py3-none-any.whl", hash = "sha256:7f7975bab18c729a257a8b1ae9dcd70b7cafb1720481beae47719af57c35fa64", size = 14090, upload-time = "2025-02-28T20:24:55.152Z" },
+]
+
+[[package]]
+name = "groq"
+version = "0.26.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "anyio" },
+    { name = "distro" },
+    { name = "httpx" },
+    { name = "pydantic" },
+    { name = "sniffio" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/b6/68/a820a22937e4a2f48b7a60e1aaf7948fb57d1c124072829b5cc06a01cfa0/groq-0.26.0.tar.gz", hash = "sha256:1f1e50d26c6134f6fb580ea7002e8f9ff5c7c1685c9e0f50d71adecd039ae5d4", size = 128500, upload-time = "2025-05-29T18:25:23.332Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/da/2e/14bef74aa760199c7a179c753953512d1aa1ed264f7477f6bd6fe9b9cff3/groq-0.26.0-py3-none-any.whl", hash = "sha256:4dc0900d506876ea39a9aa1985f12a51859bacf486fe939664248eff1f451af3", size = 129572, upload-time = "2025-05-29T18:25:22.077Z" },
 ]
 
 [[package]]
@@ -460,8 +488,21 @@ wheels = [
 ]
 
 [[package]]
+name = "langchain-groq"
+version = "0.3.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "groq" },
+    { name = "langchain-core" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/e0/4c/973faadcc54fc74352c6758208f48b08dd072025ab33beea52e6c31d4cd1/langchain_groq-0.3.2.tar.gz", hash = "sha256:033f459d4c0515e22a6e64f5a402e366933a6c827fd5915547419cb62fd7b34a", size = 22074, upload-time = "2025-03-31T13:42:29.024Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c0/58/0d5a19168119c1bd7758ab28d9e6b5c12ba1091bb283f4dc13ca5df7651b/langchain_groq-0.3.2-py3-none-any.whl", hash = "sha256:bc111dea17a3510498c4697c42bf97e629bcf8f00b97fa25e51ea7947fc0b540", size = 15253, upload-time = "2025-03-31T13:42:28.163Z" },
+]
+
+[[package]]
 name = "langgraph"
-version = "0.4.7"
+version = "0.4.8"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "langchain-core" },
@@ -471,9 +512,9 @@ dependencies = [
     { name = "pydantic" },
     { name = "xxhash" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/67/64/4275256f9d22bf579376be6a3eabf82494d1ef2f82e353dca9bfcc1bda83/langgraph-0.4.7.tar.gz", hash = "sha256:8948a35f6f85805c8ac36e94d5492c86a34c39dcf6f405b0f84491bc444e3479", size = 444029, upload-time = "2025-05-24T00:01:32.904Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/9b/53/03380b675fef3d00d2d270e530d1a8bfe4e6f27117016a478670c9c74469/langgraph-0.4.8.tar.gz", hash = "sha256:48445ac8a351b7bdc6dee94e2e6a597f8582e0516ebd9dea0fd0164ae01b915e", size = 453277, upload-time = "2025-06-02T23:26:16.979Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/c0/ed/6435328d51f0a56f42e53f8089ce31479c6e041248de9448652150f83162/langgraph-0.4.7-py3-none-any.whl", hash = "sha256:a925a3881fcd631eccf076994f41012e9320cd1adacc9aeb89ffcb3442b61f86", size = 154924, upload-time = "2025-05-24T00:01:31.097Z" },
+    { url = "https://files.pythonhosted.org/packages/17/8a/fe05ec63ee4c3889a8b89679a6bdd1be6087962818996f3b361da23a5529/langgraph-0.4.8-py3-none-any.whl", hash = "sha256:273b02782669a474ba55ef4296607ac3bac9e93639d37edc0d32d8cf1a41a45b", size = 152444, upload-time = "2025-06-02T23:26:15.107Z" },
 ]
 
 [[package]]

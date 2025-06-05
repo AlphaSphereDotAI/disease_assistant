@@ -1,7 +1,7 @@
 [project]
 name = "disease-assistant"
 version = "0.1.0"
-description = "Add your description here"
+description = "Disease Assistant Agent Multi-System"
 readme = "README.md"
 authors = [
   { name = "Mohamed Hisham Abdelzaher", email = "mohamed.hisham.abdelzaher@gmail.com" },
@@ -11,14 +11,13 @@ authors = [
 ]
 requires-python = ">=3.12"
 dependencies = [
-  "gradio[mcp]>=5.32.1",
+  "gradio[mcp]>=5.33.0",
   "langchain-groq>=0.3.2",
   "langgraph>=0.4.8",
   "loguru>=0.7.3",
 ]
 
 [project.scripts]
-
 disease-assistant = "disease_assistant.__main__:main"
 
 [build-system]
@@ -26,4 +25,11 @@ requires = ["uv_build"]
 build-backend = "uv_build"
 
 [dependency-groups]
-dev = ["ruff>=0.11.12", "ty>=0.0.1a7"]
+dev = ["ruff>=0.11.12", "ty>=0.0.1a8"]
+
+[tool.ty.rules]
+possibly-unresolved-reference = "error"
+division-by-zero = "error"
+
+[tool.ty.environment]
+python = "./.venv"

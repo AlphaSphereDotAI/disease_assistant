@@ -1,6 +1,6 @@
 [project]
 name = "disease-assistant"
-version = "0.0.1"
+version = "0.0.0"
 description = "Disease Assistant Agent Multi-System"
 readme = "README.md"
 authors = [

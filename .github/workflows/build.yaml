@@ -20,6 +20,12 @@ jobs:
       UV_LINK_MODE: "copy"
     runs-on: ubuntu-latest
     steps:
+      - name: Get Token AlphaSphereDotAI-Helpr[bot]
+        id: get_token
+        uses: peter-murray/workflow-application-token-action@v4
+        with:
+          application_id: ${{ vars.ALPHASPHEREDOTAI_HELPR_ID }}
+          application_private_key: ${{ secrets.ALPHASPHEREDOTAI_HELPR_KEY }}
       - name: Checkout Code
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
       - name: Install uv

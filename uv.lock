@@ -332,7 +332,7 @@ wheels = [
 
 [[package]]
 name = "groq"
-version = "0.26.0"
+version = "0.32.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio" },
@@ -342,9 +342,9 @@ dependencies = [
     { name = "sniffio" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/b6/68/a820a22937e4a2f48b7a60e1aaf7948fb57d1c124072829b5cc06a01cfa0/groq-0.26.0.tar.gz", hash = "sha256:1f1e50d26c6134f6fb580ea7002e8f9ff5c7c1685c9e0f50d71adecd039ae5d4", size = 128500, upload-time = "2025-05-29T18:25:23.332Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/4d/8c/ed52c15fac63f577dd996367dd5d5133cba3e67e844df21800342461b916/groq-0.32.0.tar.gz", hash = "sha256:fb1ade61f47a06d1a1c1dc0fab690d269b799ebd57ad1dd867efaeaa7adeb2af", size = 141541, upload-time = "2025-09-27T23:01:34.617Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/da/2e/14bef74aa760199c7a179c753953512d1aa1ed264f7477f6bd6fe9b9cff3/groq-0.26.0-py3-none-any.whl", hash = "sha256:4dc0900d506876ea39a9aa1985f12a51859bacf486fe939664248eff1f451af3", size = 129572, upload-time = "2025-05-29T18:25:22.077Z" },
+    { url = "https://files.pythonhosted.org/packages/9d/08/24d62fccb01c4e86c59ba79073af7e5c8ab643846823c2fa3e957bde4b58/groq-0.32.0-py3-none-any.whl", hash = "sha256:0ed0be290042f8826f851f3a1defaac4f979dcfce86ec4a0681a23af00ec800b", size = 135387, upload-time = "2025-09-27T23:01:33.223Z" },
 ]
 
 [[package]]
@@ -471,7 +471,7 @@ wheels = [
 
 [[package]]
 name = "langchain-core"
-version = "0.3.63"
+version = "1.0.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "jsonpatch" },
@@ -482,22 +482,22 @@ dependencies = [
     { name = "tenacity" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/b9/0a/b71a9a5d42e743d6876cce23d803e284b191ed4d6544e2f7fe1b37f7854c/langchain_core-0.3.63.tar.gz", hash = "sha256:e2e30cfbb7684a5a0319f6cbf065fc3c438bfd1060302f085a122527890fb01e", size = 558302, upload-time = "2025-05-29T18:57:19.933Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ad/d0/9db6d375ecf8bd498fcc87016e43c3d930ddbfbacf9a1e99018ada4e824f/langchain_core-1.0.0.tar.gz", hash = "sha256:8e81c94a22fa3a362a0f101bbd1271bf3725e50cf1e31c84e8f4a1c731279785", size = 764484, upload-time = "2025-10-17T13:48:24.408Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/5c/71/a748861e6a69ab6ef50ab8e65120422a1f36245c71a0dd0f02de49c208e1/langchain_core-0.3.63-py3-none-any.whl", hash = "sha256:f91db8221b1bc6808f70b2e72fded1a94d50ee3f1dff1636fb5a5a514c64b7f5", size = 438468, upload-time = "2025-05-29T18:57:17.424Z" },
+    { url = "https://files.pythonhosted.org/packages/68/6a/8dd566cb7379d6e3a921f94713babba2f71cbed65c73c784c649c1fd7d4e/langchain_core-1.0.0-py3-none-any.whl", hash = "sha256:a94561bf75dd097c7d6e3864950f28dadc963f0bd810114de4095f41f634059b", size = 467157, upload-time = "2025-10-17T13:48:23.138Z" },
 ]
 
 [[package]]
 name = "langchain-groq"
-version = "0.3.2"
+version = "1.0.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "groq" },
     { name = "langchain-core" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/e0/4c/973faadcc54fc74352c6758208f48b08dd072025ab33beea52e6c31d4cd1/langchain_groq-0.3.2.tar.gz", hash = "sha256:033f459d4c0515e22a6e64f5a402e366933a6c827fd5915547419cb62fd7b34a", size = 22074, upload-time = "2025-03-31T13:42:29.024Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/b8/9f/0a80b243f1b890cdc2d856f98d2243f49a58621de16fa80a73eba290bcb4/langchain_groq-1.0.0.tar.gz", hash = "sha256:46645591654c36db7ebc624503f26b38544b9aac0d8cf93e8db7105e049dab74", size = 196702, upload-time = "2025-10-17T15:24:30.81Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/c0/58/0d5a19168119c1bd7758ab28d9e6b5c12ba1091bb283f4dc13ca5df7651b/langchain_groq-0.3.2-py3-none-any.whl", hash = "sha256:bc111dea17a3510498c4697c42bf97e629bcf8f00b97fa25e51ea7947fc0b540", size = 15253, upload-time = "2025-03-31T13:42:28.163Z" },
+    { url = "https://files.pythonhosted.org/packages/03/0a/fd2b7545f63f2b05790c76260dc63b7cc9b0af88aa1c1e14fab9795805c2/langchain_groq-1.0.0-py3-none-any.whl", hash = "sha256:378124c2a5247df720093617afbd2dae28b06fc666372ffe7a279a0ce86b28d0", size = 16841, upload-time = "2025-10-17T15:24:29.348Z" },
 ]
 
 [[package]]
@@ -558,7 +558,7 @@ wheels = [
 
 [[package]]
 name = "langsmith"
-version = "0.3.43"
+version = "0.4.37"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
@@ -569,9 +569,9 @@ dependencies = [
     { name = "requests-toolbelt" },
     { name = "zstandard" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/02/21/df84fe8b5c16971999650cbfc95a49f176d044a606e2b4eb957bbc122e1c/langsmith-0.3.43.tar.gz", hash = "sha256:7dab99b635859e24a1a252ad4f7e23170a45f4ea742567a10b4b26c50478ed43", size = 346328, upload-time = "2025-05-29T00:21:11.637Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/09/51/58d561dd40ec564509724f0a6a7148aa8090143208ef5d06b73b7fc90d31/langsmith-0.4.37.tar.gz", hash = "sha256:d9a0eb6dd93f89843ac982c9f92be93cf2bcabbe19957f362c547766c7366c71", size = 959089, upload-time = "2025-10-15T22:33:59.465Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e2/72/f5304de3e7e80e6dc266c161230aecb7895958f78b5af1541317d7615fc6/langsmith-0.3.43-py3-none-any.whl", hash = "sha256:2d4558068abf2eeb60ff80871187724e07f5e657d7d6be9e0c603df36c41140a", size = 361148, upload-time = "2025-05-29T00:21:08.759Z" },
+    { url = "https://files.pythonhosted.org/packages/14/e8/edff4de49cf364eb9ee88d13da0a555844df32438413bf53d90d507b97cd/langsmith-0.4.37-py3-none-any.whl", hash = "sha256:e34a94ce7277646299e4703a0f6e2d2c43647a28e8b800bb7ef82fd87a0ec766", size = 396111, upload-time = "2025-10-15T22:33:57.392Z" },
 ]
 
 [[package]]

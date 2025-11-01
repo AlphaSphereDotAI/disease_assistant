@@ -1,18 +1,1 @@
-entrypoint = "./src/visualizr/__main__.py"
-
-[package.patterns]
-patterns.include = ["**/*.py", "**/README.md", "**/pyproject.toml"]
-patterns.exclude = [
-    "**/*.pyc",
-    "**/*.pyd",
-    "**/*.pyo",
-    "**/.trunk/**/*",
-    "**/__pycache__/**",
-    ".git/**/*",
-    ".venv/**/*",
-]
-
-[source]
-repository = "https://github.com/AlphaSphereDotAI/visualizr"
-branch = "main"
-update_strategy = "pull"
+entrypoint = "src/disease_assistant/__main__.py"

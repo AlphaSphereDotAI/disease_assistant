@@ -20,11 +20,14 @@ jobs:
           activate-environment: true
       - name: Build Python App with PyCrucible
         uses: razorblade23/pycrucible-action@v2
+        with:
+          entry: .
+          output: ./myapp
       - name: Upload artifacts
         uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5
         with:
           name: dist
-          path: dist/
+          path: ./myapp
   github_release:
     name: Create GitHub Release
     needs: [build_binary]
@@ -39,7 +42,7 @@ jobs:
         uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
         with:
           name: dist
-          path: dist/
+          path: ./myapp
       - name: Create GitHub Release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}

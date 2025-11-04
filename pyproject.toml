@@ -33,7 +33,7 @@ dependencies = [
 disease-assistant = "disease_assistant.__main__:main"
 
 [dependency-groups]
-dev = ["ruff>=0.11.12", "ty>=0.0.1a8"]
+dev = ["pytest>=8.4.2", "ruff>=0.11.12", "ty>=0.0.1a8"]
 
 [tool.ty.rules]
 possibly-unresolved-reference = "error"

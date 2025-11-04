@@ -9,20 +9,28 @@ authors = [
   { name = "Abdelrahman Mostafa Mohamed" },
   { name = "Youssef Mohammad" },
 ]
-requires-python = ">=3.12"
+requires-python = ">=3.10,<3.12"
 dependencies = [
-  "gradio[mcp]>=5.33.0",
+  "espnet>=202304",
+  "gradio[mcp]>=5.49.1",
+  "huggingface-hub[hf-xet]>=0.36.0",
   "langchain-groq>=0.3.2",
   "langgraph>=0.4.8",
   "loguru>=0.7.3",
+  "moviepy>=1.0.3",
+  "numpy>=1.26.4",
+  "pyfiglet>=1.0.4",
+  "python-speech-features>=0.6",
+  "pytorch-lightning>=2.5.5",
+  "realesrgan>=0.3.0",
+  "torch>=2.1.2",
+  "torchaudio>=2.1.2",
+  "torchvision>=0.16.2",
+  "transformers>=4.19.4",
 ]
 
 [project.scripts]
 disease-assistant = "disease_assistant.__main__:main"
-
-[build-system]
-requires = ["uv_build"]
-build-backend = "uv_build"
 
 [dependency-groups]
 dev = ["ruff>=0.11.12", "ty>=0.0.1a8"]

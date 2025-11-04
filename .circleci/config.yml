@@ -45,6 +45,9 @@ jobs:
       - checkout
       - setup_remote_docker:
           docker_layer_caching: true
+      - run:
+          name: Login to DockerHub
+          command: echo "$DOCKERHUB_PASS" | docker login -u mh0386 --password-stdin
       - docker/check
       - docker/build:
           image: my_repo/orb-test

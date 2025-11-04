@@ -47,7 +47,7 @@ jobs:
           docker_layer_caching: true
       - run:
           name: Login to DockerHub
-          command: echo "$DOCKERHUB_PASS" | docker login -u mh0386 --password-stdin
+          command: docker login -u mh0386 -p "$DOCKERHUB_PASS"
       - docker/check
       - docker/build:
           image: my_repo/orb-test

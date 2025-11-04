@@ -28,6 +28,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Show storage space
+          command: df -h
+      - run:
           name: Update apt
           command: sudo apt-get update
       - run:

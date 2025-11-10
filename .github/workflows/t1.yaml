@@ -10,6 +10,10 @@ jobs:
       #   uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
       - uses: robinraju/release-downloader@v1
         with:
-          fileName: '*.whl *.tar.gz'
+          fileName: 'disease_assistant*.whl'
+          latest: true
+      - uses: robinraju/release-downloader@v1
+        with:
+          fileName: 'disease_assistant*.tar.gz'
           latest: true
       - run: ls -alh

@@ -26,10 +26,12 @@ jobs:
           extract: true
           tarBall: true
           out-file-path: pyapp
-      - run: cd pyapp
       - run: ls -alh
+        working-directory: pyapp
       - run: mv ofek-pyapp-* pyapp-latest
+        working-directory: pyapp
       - run: ls -alh pyapp-latest
+        working-directory: pyapp
       - name: Build
         run: hatch build --target binary
       - run: ls -a dist/

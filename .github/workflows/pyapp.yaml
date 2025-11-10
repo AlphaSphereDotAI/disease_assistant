@@ -25,7 +25,9 @@ jobs:
           latest: true
           extract: true
           tarBall: true
+          out-file-path: pyapp
       - run: ls -alh
+      - run: ls -alh pyapp
       - name: Build
         run: hatch build --target binary
       - run: ls -a dist/

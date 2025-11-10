@@ -53,7 +53,9 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github
-      url: https://github.com/${{github.repository}}/releases/tag/${{github.ref_name}}
+      url: ${{github.event.repository.html_url}}/releases/tag/${{github.ref_name}}
+    permissions:
+      contents: write
     steps:
       - name: Checkout Code
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
@@ -61,9 +63,8 @@ jobs:
         uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
         with:
           name: dist
-          path: pyapp/pyapp-latest/${{ github.event.repository.name }}
+          path: dist/
       - name: Create GitHub Release
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: >-
-          gh release create ${{ github.ref_name }} pyapp/pyapp-latest/* --title ${{ github.ref_name }} --generate-notes
+        uses: softprops/action-gh-release@v2.4.2
+        with:
+          files: pyapp/pyapp-latest/*

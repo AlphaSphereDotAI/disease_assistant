@@ -32,16 +32,17 @@ jobs:
         working-directory: pyapp
       - run: ls -alh pyapp-latest
         working-directory: pyapp
-      - name: Build
-        run: hatch build --target binary
-      - run: ls -a dist/
-      - run: cp dist/binary/* dist/
-      - run: rm -rd dist/binary/
+      - run: cargo build --release
+        working-directory: pyapp
+      - run: mv target/release/pyapp ${{ github.event.repository.name }}
+        working-directory: pyapp
+      - run: chmod +x ${{ github.event.repository.name }}
+        working-directory: pyapp
       - name: Upload artifacts
         uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5
         with:
           name: dist
-          path: dist/
+          path: pyapp/${{ github.event.repository.name }}
   github_release:
     name: Create GitHub Release
     needs: [build_binary]
@@ -56,9 +57,9 @@ jobs:
         uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
         with:
           name: dist
-          path: dist/
+          path: pyapp/${{ github.event.repository.name }}
       - name: Create GitHub Release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: >-
-          gh release create ${{ github.ref_name }} dist/* --title ${{ github.ref_name }} --generate-notes
+          gh release create ${{ github.ref_name }} pyapp/* --title ${{ github.ref_name }} --generate-notes

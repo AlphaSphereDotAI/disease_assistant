@@ -27,6 +27,7 @@ jobs:
           tarBall: true
           out-file-path: pyapp
       - run: cd pyapp
+      - run: ls -alh
       - run: mv ofek-pyapp-* pyapp-latest
       - run: ls -alh pyapp-latest
       - name: Build

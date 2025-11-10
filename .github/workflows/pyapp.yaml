@@ -26,8 +26,9 @@ jobs:
           extract: true
           tarBall: true
           out-file-path: pyapp
-      - run: ls -alh
-      - run: ls -alh pyapp
+      - run: cd pyapp
+      - run: mv ofek-pyapp-* pyapp-latest
+      - run: ls -alh pyapp-latest
       - name: Build
         run: hatch build --target binary
       - run: ls -a dist/

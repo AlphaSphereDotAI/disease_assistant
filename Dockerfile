@@ -1,4 +1,4 @@
-FROM python:3.13 AS builder
+FROM python:3.13@sha256:fb009793d34887badaf75aaf5a37682abebb9fa480ab78134d36b7b19e0812b2 AS builder
 
 SHELL ["/bin/bash", "-c"]
 
@@ -21,7 +21,7 @@ COPY . /app
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --no-dev --locked --no-editable
 
-FROM python:3.13-slim AS production
+FROM python:3.13-slim@sha256:85dfbf1b566b7addfe645faea9938e81a0a01a83580b0ea05fb23706357d77fb AS production
 
 SHELL ["/bin/bash", "-c"]
 

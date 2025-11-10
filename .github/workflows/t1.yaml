@@ -11,3 +11,4 @@ jobs:
       - uses: robinraju/release-downloader@v1
         with:
           fileName: 'disease_assistant-*.whl disease_assistant-*.tar.gz'
+          latest: true

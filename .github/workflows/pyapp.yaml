@@ -9,6 +9,8 @@ jobs:
       name: pyapp
       url: https://github.com/${{github.repository}}/commits/${{github.ref_name}}
     runs-on: ubuntu-latest
+    env:
+      PYAPP_PROJECT_NAME: ${{ github.event.repository.name }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5        

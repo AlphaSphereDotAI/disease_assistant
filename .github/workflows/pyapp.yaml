@@ -19,8 +19,13 @@ jobs:
           enable-cache: true
           cache-dependency-glob: "uv.lock"
           activate-environment: true
-      - name: Install Hatch
-        uses: pypa/hatch@install
+      - uses: robinraju/release-downloader@v1
+        with:
+          repository: ofek/pyapp
+          latest: true
+          extract: true
+          tarBall: true
+      - run: ls -a
       - name: Build
         run: hatch build --target binary
       - run: ls -a dist/

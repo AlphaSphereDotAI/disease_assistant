@@ -15,7 +15,18 @@ jobs:
           name: Install system dependencies
           command: sudo apt-get install python3-dev
       - python/install-packages:
-          pkg-manager: uv
+          pkg-manager: uv      
+      - run:
+          name: Export requirements
+          command: >
+            uv export 
+            --quiet 
+            --no-hashes 
+            --format requirements.txt 
+            --output-file requirements.txt 
+            --no-emit-project 
+            --no-annotate 
+            --no-header
       - snyk/scan
 workflows:
   build_test_deploy:

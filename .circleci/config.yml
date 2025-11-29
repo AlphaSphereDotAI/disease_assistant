@@ -7,9 +7,8 @@ jobs:
       - image: cimg/python:3.12
     steps:
       - checkout
-      - run:
-          name: Install Dependencies
-          command: pip install --no-cache-dir -r requirements.txt
+      - python/install-packages:
+          pkg-manager: uv
       - snyk/scan
 workflows:
   build_test_deploy:

@@ -8,6 +8,12 @@ jobs:
       - image: cimg/python:3.12
     steps:
       - checkout
+      - run:
+          name: Update apt
+          command: sudo apt-get update
+      - run:
+          name: Install system dependencies
+          command: sudo apt-get install python3-dev
       - python/install-packages:
           pkg-manager: uv
       - snyk/scan

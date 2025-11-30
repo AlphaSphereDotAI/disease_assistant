@@ -1,6 +1,6 @@
 name: Lint
 on:
-  workflow_call:
+  push:
 permissions:
   contents: write
   pull-requests: write

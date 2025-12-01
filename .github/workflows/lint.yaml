@@ -5,7 +5,19 @@ permissions:
   contents: write
   pull-requests: write
   checks: write
-jobs:
+jobs:  
+  trivy:
+    name: Trivy
+    runs-on: ubuntu-latest
+    environment:
+      name: code_quality
+    steps:
+      - name: Run Trivy vulnerability scanner in repo mode
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          scan-type: repo
+          scan-ref: ${{ github.event.repository.html_url }}
+          format: sarif
   check:
     name: Check
     runs-on: ubuntu-latest

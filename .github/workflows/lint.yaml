@@ -13,7 +13,7 @@ jobs:
       name: code_quality
     steps:
       - name: Run Trivy vulnerability scanner in repo mode
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@0.33.1
         with:
           scan-type: repo
           scan-ref: ${{ github.event.repository.html_url }}

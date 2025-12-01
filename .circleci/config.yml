@@ -1,20 +1,20 @@
 version: '2.1'
 orbs:
-  trivy: cci-labs/trivy:latest
+  trivy: cci-labs/trivy@1.0.0
 jobs:
   trivy:
     docker:
-      - image: cimg/base:2024.11
+      - image: cimg/base
     environment:
       TRIVY_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-db
     steps:
       - checkout
-      - aqua-trivy/scan:
+      - trivy/scan:
           format: sarif
           ignore-unfixed: true
           output: report.sarif
           scan-type: fs
 workflows:
-  demo:
+  trivy-scan:
     jobs:
       - trivy

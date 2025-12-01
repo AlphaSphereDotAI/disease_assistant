@@ -4,7 +4,7 @@ orbs:
 jobs:
   trivy:
     docker:
-      - image: cimg/base
+      - image: cimg/base:edge
     environment:
       TRIVY_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-db
     steps:

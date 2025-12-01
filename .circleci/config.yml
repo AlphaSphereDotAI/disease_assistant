@@ -1,34 +1,20 @@
-version: 2.1
+version: '2.1'
 orbs:
-  snyk: snyk/snyk@2.2.0
-  python: circleci/python@3.3.0
+  trivy: cci-labs/trivy:latest
 jobs:
-  build_test:
+  trivy:
     docker:
-      - image: cimg/python:3.12
+      - image: cimg/base:2024.11
+    environment:
+      TRIVY_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-db
     steps:
       - checkout
-      - run:
-          name: Update apt
-          command: sudo apt-get update
-      - run:
-          name: Install system dependencies
-          command: sudo apt-get install python3-dev
-      - python/install-packages:
-          pkg-manager: uv      
-      - run:
-          name: Export requirements
-          command: >
-            uv export 
-            --quiet 
-            --no-hashes 
-            --format requirements.txt 
-            --output-file requirements.txt 
-            --no-emit-project 
-            --no-annotate 
-            --no-header
-      - snyk/scan
+      - aqua-trivy/scan:
+          format: sarif
+          ignore-unfixed: true
+          output: report.sarif
+          scan-type: fs
 workflows:
-  build_test_deploy:
+  demo:
     jobs:
-      - build_test
+      - trivy

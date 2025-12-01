@@ -18,6 +18,7 @@ jobs:
           scan-type: repo
           scan-ref: ${{ github.event.repository.html_url }}
           format: github
+          github-pat: ${{ secrets.GH_TOKEN }}
   check:
     name: Check
     runs-on: ubuntu-latest

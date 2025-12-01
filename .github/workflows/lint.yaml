@@ -20,15 +20,14 @@ jobs:
         uses: aquasecurity/trivy-action@0.33.1
         with:
           scan-type: repo
-          format: sarif
-          output: trivy-results.sarif
+          format: github
           github-pat: ${{ secrets.GH_TOKEN }}
-      - run: ls -lah
-      - name: Upload Trivy scan results to GitHub Security tab
-        if: success() || failure()
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: trivy-results.sarif
+      # - run: ls -lah
+      # - name: Upload Trivy scan results to GitHub Security tab
+      #   if: success() || failure()
+      #   uses: github/codeql-action/upload-sarif@v3
+      #   with:
+      #     sarif_file: trivy-results.sarif
   check:
     name: Check
     runs-on: ubuntu-latest

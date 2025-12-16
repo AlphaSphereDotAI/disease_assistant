@@ -20,6 +20,7 @@ jobs:
       UV_LINK_MODE: "copy"
     runs-on: ubuntu-latest
     steps:
+      - uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
       - name: Get Token AlphaSphereDotAI-Helpr[bot]
         id: get_token
         uses: peter-murray/workflow-application-token-action@v4

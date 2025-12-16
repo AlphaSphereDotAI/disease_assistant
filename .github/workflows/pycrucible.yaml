@@ -46,7 +46,7 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/*
+          files: ./myapp
         # env:
         #   GH_TOKEN: ${{ secrets.GH_TOKEN }}
         # run: >-

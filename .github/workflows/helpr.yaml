@@ -11,3 +11,4 @@ jobs:
         with:
           is_test: true
           lint: true
+          linter: pre-commit

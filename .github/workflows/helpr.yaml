@@ -1,0 +1,10 @@
+name: Trunk Code Quality
+on:
+  push:
+  pull_request:
+jobs:
+  trunk:
+    name: Trunk Code Quality
+    runs-on: ubuntu-slim
+    steps:
+      - uses: AlphaSphereDotAI/helpr_action@main

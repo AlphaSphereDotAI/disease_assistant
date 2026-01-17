@@ -10,3 +10,4 @@ jobs:
       - uses: AlphaSphereDotAI/helpr_action@main
         with:
           is_test: true
+          lint: true

@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: Get hostname
         run: hostname
+      - run: echo $USER
       - uses: AlphaSphereDotAI/helpr_action@main
         with:
           is_test: true

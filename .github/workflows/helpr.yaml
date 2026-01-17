@@ -1,9 +1,10 @@
 name: helpr
 on:
   push:
+    branches: main
   pull_request:
 jobs:
-  trunk:
+  helpr:
     name: helpr
     runs-on: ubuntu-latest
     steps:
@@ -12,3 +13,4 @@ jobs:
           is_test: true
           lint: true
           linter: pre-commit
+          github_token: ${{ secrets.GH_TOKEN }}

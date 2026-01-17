@@ -1,4 +1,4 @@
-name: Trunk Code Quality
+name: helpr
 on:
   push:
   pull_request:

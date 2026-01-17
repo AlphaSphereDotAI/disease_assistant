@@ -8,6 +8,8 @@ jobs:
     name: helpr
     runs-on: ubuntu-latest
     steps:
+      - name: Get hostname
+        run: hostname
       - uses: AlphaSphereDotAI/helpr_action@main
         with:
           is_test: true

@@ -4,7 +4,7 @@ on:
   pull_request:
 jobs:
   trunk:
-    name: Trunk Code Quality
-    runs-on: ubuntu-slim
+    name: helpr
+    runs-on: ubuntu-latest
     steps:
       - uses: AlphaSphereDotAI/helpr_action@main

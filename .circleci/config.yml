@@ -1,20 +1,68 @@
-version: '2.1'
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/reference/configuration-reference
+
+# For a detailed guide to building and testing with Python, read the docs:
+# https://circleci.com/docs/language-python/ for more details
+version: 2.1
+
+# Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
+# See: https://circleci.com/docs/orbs/use/orb-intro/
 orbs:
-  trivy: cci-labs/trivy@1.0.0
+  docker: circleci/docker@3.0.1
+  # See the Python orb documentation here: https://circleci.com/developer/orbs/orb/circleci/python
+  python: circleci/python@3.3.0
+
+# Define a job to be invoked later in a workflow.
+# See: https://circleci.com/docs/guides/orchestrate/jobs-steps/#jobs-overview & https://circleci.com/docs/reference/configuration-reference/#jobs
 jobs:
-  trivy:
+  build-and-test:
+    # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
+    # See: https://circleci.com/docs/guides/execution-managed/executor-intro/ & https://circleci.com/docs/reference/configuration-reference/#executor-job
     docker:
-      - image: cimg/base:edge
-    environment:
-      TRIVY_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-db
+      # Specify the version you desire here
+      # See:https://circleci.com/developer/images/image/cimg/python
+      - image: cimg/python:3.12
+
+    # Add steps to the job
+    # See: https://circleci.com/docs/guides/orchestrate/jobs-steps/#steps-overview & https://circleci.com/docs/reference/configuration-reference/#steps
     steps:
       - checkout
-      - trivy/scan:
-          format: sarif
-          ignore-unfixed: true
-          output: report.sarif
-          scan-type: fs
+      - run:
+          name: Show storage space
+          command: df -h
+      - run:
+          name: Update apt
+          command: sudo apt-get update
+      - run:
+          name: Install system dependencies
+          command: sudo apt-get install python3-dev
+      - python/install-packages:
+          pkg-manager: uv
+      - run:
+          name: Run tests
+          # This assumes pytest is installed via the install-package step above
+          command: uv --version
+  docker-build:
+    executor: docker/docker
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - docker/check
+      - docker/build:
+          image: my_repo/orb-test
+      - docker/push:
+          digest_path: /tmp/digest.txt
+          image: my_repo/orb-test
+      - run:
+          command: |
+            echo "Digest is: $(</tmp/digest.txt)"
+
+# Orchestrate jobs using workflows
+# See: https://circleci.com/docs/guides/orchestrate/workflows/ & https://circleci.com/docs/reference/configuration-reference/#workflows
 workflows:
-  trivy-scan:
+  sample: # This is the name of the workflow, feel free to change it to better match your workflow.
+    # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - trivy
+      - build-and-test
+      - docker-build
